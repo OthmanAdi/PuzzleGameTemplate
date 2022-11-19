@@ -23,6 +23,22 @@ html {
     margin-bottom: 20px;
 }
 
+button {
+    background: #fcc700;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20pt;
+    font-family: Fredoka;
+    border: 0;
+    cursor: pointer;
+}
+
+.disabled{
+    background: darkgray;
+    color: dimgrey;
+}
+
 .board-container {
     position: relative;
 }
@@ -33,3 +49,43 @@ html {
     box-shadow: 0 8px 50px rgb(30 30 30 / 100%);
 }
 
+.board {
+    padding: 20px; /*Innerin verchachtlung*/
+    display: grid; /*Raster eingenschaft freischalten, um spalten und reihen zu definieren*/
+    grid-template-columns: repeat(4, 1fr); /*4 spalten mit gleiche breite*/
+    gap: 10px; /*Innerin verchachtlung zwischen die spalten*/
+}
+
+/*wenn board-container der auslöser von flipped durch JS bekommt, dann dreht sich der Karten tafen 180 grad um*/
+.board-container.flipped .board {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+/*und wird der YouWin text auf der rück seite umgedreht*/
+.board-container.flipped .win {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    background: #6f00fc;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.card-back {
+    transform: rotateY(180deg) rotateZ(50deg);
+    font-size: 20pt;
+    text-align: center;
+    background: aliceblue;
+}

@@ -14,3 +14,13 @@ const stats = {
   totalTime: 0,
   loop: null,
 }
+
+//Hier wird die zeit funktion geschrieben mit die veranschtaltung die der zeit auslösst und in der Text feld von timer, der in gameVariables tabelle geschrieben ist.
+const startGame = () => {
+  stats.gameStarted = true;
+  gameVariables.start.classList.add("disabled");
+};
+
+gameVariables.start.addEventListener("click", ()=>{
+  startGame();
+});
