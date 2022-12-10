@@ -38,6 +38,7 @@ const shuffle = array => {
 //function fur random auswahl von emojis/bilder die in die karten sortiert sollen
 const pickRandom = (array, item) => {
   const clonedArray = [...array];
+  // diese array bekommt random zahlen, die danach an clonedArray geleitet wird
   const randomPicks = [];
 
   // diese Schleife verwendet als beginn und ende zahl der index und item, wobei index bei 0 beginnt und die Schleife bricht, sobald index ist gleich der zahl der item paramter, in der zukunft von uns bekommen würde als menge von emojis in der spiel
@@ -95,8 +96,23 @@ gameVariables.start.addEventListener("click", () => {
 });
 
 //function um karten zu flippen
+const flipCard = card => {
+  stats.flippedCards++; //wird verwendet um die karten zu vergleichen und nur 2 karten pro runde öffnen lassen
+  stats.totalFlips++; //gesammten anzahl von flips versuche der am ende der spiel gezeigt wird
+  
+  if(!stats.gameStarted){ //Anti Cheat
+    startGame();
+  }
+}
 
 //function um karten flip status zurücksetzten
+// bei diese Funktion, werden nachdem alle karten erzeugt sind alle die karten die geflipped sind untersucht, wenn sie einandere nicht matchen, dann bekommen sind die klasse von flipped entfernt, welche verantwortlich ist um das teil umzudrehen.
+const flipBackCard = () =>{
+  document.querySelectorAll('.card:not(.matched)').forEach(card =>{
+    card.classList.remove('flipped');
+  });
+  stats.flippedCards = 0; //diese tabelle reihe, wird genullt um weiter versuche zu machen
+}
 
 //function die entdeckt, wenn kein Karten mehr übrig bedeutet das, das die spiel, zu ende Ist!!!
 
