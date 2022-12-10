@@ -34,7 +34,7 @@ button {
     cursor: pointer;
 }
 
-.disabled{
+.disabled {
     background: darkgray;
     color: dimgrey;
 }
