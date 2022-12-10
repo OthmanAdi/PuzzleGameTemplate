@@ -91,11 +91,11 @@ button {
 }
 
 /*wenn die klasse card die klasse von flipped mit JS bekommt, dann lässt sie die vordere seite umdrehen*/
-.card.flipped .card-front:hover {
+.card .card-front:hover {
     transform: rotateY(180deg) rotateZ(50deg);
 }
 
 /*wenn die klasse card die klasse von flipped mit JS bekommt, dann lässt sie die rück seite umdrehen*/
-.card.flipped .card-back {
-/*    Flippe die ruck seite*/
+.card .card-back:hover {
+    transform: rotateY(0deg) rotateZ(0deg);
 }

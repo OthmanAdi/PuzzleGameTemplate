@@ -64,8 +64,8 @@ const generateGame = () => {
         <div class="board" style="grid-template-columns: repeat(2, auto)">
             ${item.map(item => `
                 <div class="card">
-                    <div class="card-front">${item}</div>
-                    <div class="card-back"></div>
+                    <div class="card-front"></div>
+                    <div class="card-back">${item}</div>
                 </div>
             `).join('')}
        </div>
